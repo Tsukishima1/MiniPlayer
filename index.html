@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MiniPlayer</title>
+    <script src="index.js"></script>
+    <style>
+        * {
+            padding: 0px;
+            margin: 0px;
+        }
+        body {
+            background-color: rgb(242, 242, 242);
+            background-image: url(/defaultcover.jpg);
+            background-size: 100%;
+        }
+        body::before {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backdrop-filter: blur(10px);
+        }
+        .container {
+            position: absolute;
+            z-index: 10;
+            width: 416px;
+            height: 169px;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%,-50%);
+            background: #FCFCFC;
+            box-shadow: 0px 0px 16px 0px rgba(255, 255, 255, 0.785);
+            border-radius: 24px;
+        }
+        .container .play {
+            position: absolute;
+            background: #F5F5F5;
+            width: 58px;
+            height: 58px;
+            bottom: 22px;
+            right: 82px;
+            border-radius: 100%;
+            cursor: pointer;
+        }
+        .play:hover {
+            transition: 0.15s linear;
+            background-color: #f2f2f2;
+        }
+        .play .on {
+            display: block;
+            position: absolute;
+            right: 15px;
+            bottom: 15px;
+        }
+        .play .off {
+            display: none;
+            position: absolute;
+            right: 13px;
+            top: 14px;
+        }
+        .next {
+            cursor: pointer;
+            position: absolute;
+            right: 43px;
+            top: 110px;
+        }
+        .last {
+            cursor: pointer;
+            position: absolute;
+            top: 110px;
+            right: 165px;
+        }
+        .cover {
+            cursor: pointer;
+            position: absolute;
+            width: 153px;
+            height: 153px;
+            left: 35px;
+            bottom: 61px;
+            box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.38);
+            border-radius: 29px;
+            background-image: url(defaultcover.jpg);
+            background-position: center;
+            background-size: 100%;
+        }
+        .cover:hover {
+            transition: 0.2s linear;
+            transform: translateY(-3px);
+        }
+        .volume-bar {
+            position: absolute;
+            bottom: 25px;
+            left: 26px;
+            width: 173px;
+            height: 7px;
+            background-color: #D9D9D9;
+            border-radius: 26px;
+        }
+        .volume-bar .volumed {
+            width: 135px;
+            height: 100%;
+            background-color: #C5C7D2;
+            border-radius: 26px;
+        }
+        .volume-bar::after {
+            cursor: pointer;
+            content: "";
+            position: absolute;
+            bottom: -3px;
+            left: 128px;
+            width: 14px;
+            height: 14px;
+            border-radius: 100%;
+            background-color: #C5BDD0;
+            box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.41);
+        }
+        .name {
+            position: absolute;
+            right: 32px;
+            top: 23px;
+            width: 158px;
+            height: 38px;
+            background: #F5F5F5;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="play">
+            <svg class="on" style="display:block" width="24" height="28" viewBox="0 0 24 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M22.5 11.4019C24.5 12.5566 24.5 15.4434 22.5 16.5981L4.5 26.9904C2.5 28.1451 0 26.7017 0 24.3923L0 3.60769C0 1.29829 2.5 -0.145082 4.5 1.00962L22.5 11.4019Z" fill="#C5BDD0"/>
+            </svg>                
+            <svg class="off" style="display: none" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g filter="url(#filter0_d_11_21)">
+                <rect x="4" y="4" width="7.68" height="23.04" rx="3" fill="#C5BDD0"/>
+                </g>
+                <g filter="url(#filter1_d_11_21)">
+                <rect x="20.3199" y="4" width="7.68" height="23.04" rx="3" fill="#C5BDD0"/>
+                </g>
+                <defs>
+                <filter id="filter0_d_11_21" x="0" y="0" width="15.6801" height="31.04" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+                <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+                <feOffset/>
+                <feGaussianBlur stdDeviation="2"/>
+                <feComposite in2="hardAlpha" operator="out"/>
+                <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.09 0"/>
+                <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_11_21"/>
+                <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_11_21" result="shape"/>
+                </filter>
+                <filter id="filter1_d_11_21" x="16.3199" y="0" width="15.6801" height="31.04" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+                <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+                <feOffset/>
+                <feGaussianBlur stdDeviation="2"/>
+                <feComposite in2="hardAlpha" operator="out"/>
+                <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.09 0"/>
+                <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_11_21"/>
+                <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_11_21" result="shape"/>
+                </filter>
+                </defs>
+            </svg>                
+        </div>
+        <svg class="next" width="14" height="17" viewBox="0 0 14 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M13 6.76795C14.3333 7.53775 14.3333 9.46225 13 10.2321L3.25 15.8612C1.91667 16.631 0.25 15.6688 0.25 14.1292L0.25 2.87084C0.25 1.33124 1.91667 0.368984 3.25 1.13878L13 6.76795Z" fill="#D9D9D9"/>
+        </svg>
+        <svg class="last" width="14" height="17" viewBox="0 0 14 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M1 6.76795C-0.333332 7.53775 -0.333333 9.46225 1 10.2321L10.75 15.8612C12.0833 16.631 13.75 15.6688 13.75 14.1292L13.75 2.87084C13.75 1.33124 12.0833 0.368984 10.75 1.13878L1 6.76795Z" fill="#D9D9D9"/>
+        </svg>
+        <div class="cover"></div>
+        <div class="volume-bar">
+            <div class="volumed"></div>
+        </div>
+        <div class="name"></div>                 
+    </div>
+</body>
+</html>
