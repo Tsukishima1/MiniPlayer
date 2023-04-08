@@ -12,4 +12,30 @@ window.addEventListener('load',function() {
             off.style.display='none';            
         }
     })
+    var lyrics = document.querySelector('.lyrics');
+    var cover = document.querySelector('.cover');
+    var mirror = document.querySelector('.mirror');
+    lyrics.addEventListener('click', function(){
+        showLyrics=!showLyrics;
+        if (showLyrics) {
+            lyrics_more.style.WebkitTransform='translateY(0px)';
+            console.log(lyrics_more.style.transform);
+        }
+        else {
+            lyrics_more.style.WebkitTransform='translateY(100%)';
+        }
+    })
+    cover.addEventListener('click', function() {
+        showLyrics=!showLyrics;
+        if (showLyrics) {
+            lyrics_more.style.WebkitTransform='translateY(0px)';
+            console.log(lyrics_more.style.transform);
+        }
+        else {
+            lyrics_more.style.WebkitTransform='translateY(100%)';
+        }
+    })
+    var showLyrics = false;
+    var lyrics_more = document.querySelector('.lyrics_more');
+    
 })

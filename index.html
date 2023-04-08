@@ -10,6 +10,7 @@
         * {
             padding: 0px;
             margin: 0px;
+            font-family: 'Microsoft YaHei UI';
         }
         body {
             background-color: rgb(242, 242, 242);
@@ -25,15 +26,16 @@
         }
         .container {
             position: absolute;
-            z-index: 10;
-            width: 416px;
+            z-index: 99;
+            width: 456px;
             height: 169px;
             left: 50%;
-            top: 50%;
+            top: 70%;
             transform: translate(-50%,-50%);
             background: #FCFCFC;
             box-shadow: 0px 0px 16px 0px rgba(255, 255, 255, 0.785);
             border-radius: 24px;
+            overflow: hi;
         }
         .container .play {
             position: absolute;
@@ -41,13 +43,14 @@
             width: 58px;
             height: 58px;
             bottom: 22px;
-            right: 82px;
+            right: 122px;
             border-radius: 100%;
             cursor: pointer;
         }
         .play:hover {
-            transition: 0.15s linear;
+            transition: 0.2s linear;
             background-color: #f2f2f2;
+            box-shadow: 0px 0px 5px 0px rgb(183, 183, 183);
         }
         .play .on {
             display: block;
@@ -64,14 +67,14 @@
         .next {
             cursor: pointer;
             position: absolute;
-            right: 43px;
+            right: 83px;
             top: 110px;
         }
         .last {
             cursor: pointer;
             position: absolute;
             top: 110px;
-            right: 165px;
+            right: 206px;
         }
         .cover {
             cursor: pointer;
@@ -119,16 +122,108 @@
         }
         .name {
             position: absolute;
-            right: 32px;
+            right: 38px;
             top: 23px;
-            width: 158px;
-            height: 38px;
+            width: 188px;
+            height: 48px;
             background: #F5F5F5;
             border-radius: 10px;
+            display: flex;
+            align-items: center;
+            text-indent: 10px;
+        }
+        .lyrics {
+            cursor: pointer;
+            position: absolute;
+            right: 20px;
+            bottom: 30px;
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #858585;
+            font-weight: bold;
+            font-size: 1.35rem;
+            background-color: #ececec;
+            outline: none;
+            border: 0px;
+        }
+        .lyrics:hover {
+            transition: 0.2s ease-in-out;
+            transform: translateY(-1px);
+            background-color: rgb(211, 211, 211);
+        }
+        .lyrics_more .title {
+            position: absolute;
+            top: 26px;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        .lyrics_more {
+            position: absolute;
+            z-index: -99;
+            width: 400px;
+            background:linear-gradient(to top, white, #F5F5F5);
+            height: 430px;
+            bottom: 168px;
+            border-radius: 30px;
+            border-bottom-left-radius: 0px;
+            border-bottom-right-radius: 0px;
+            left: 27px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: ease-in-out 0.7s;
+            opacity: 0.9;
+            transform: translateY(100%);
+        }
+        .lyrics_more_container {
+            display: flex;
+            white-space: pre-wrap;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: #3c3c3c;
+        }
+        .lyrics_more_container p:nth-child(2n+1) {
+            margin-top: 25px;
+            font-size: 1.05rem;
+        }
+        .lyrics_more_container p:nth-child(2n) {
+            margin-top: 3px;
+            color: #858585;
+        }
+        .mirror {
+            position: absolute;
+            z-index: -999;
+            width: 456px;
+            height: 639px;
+            bottom: 0px;
+            border-radius: 24px;
+            overflow: clip;
+            overflow-clip-margin: 500px;
+            background-color: transparent;
+            overflow: hidden;
+        }
+        .mask {
+            height: 100%;
+            width: 100%;
+            border-radius: 24px;
+            background-color: rgb(255, 255, 255);
+        }
+        .lyrics_more .singer {
+            position: absolute;
+            top: 60px;
+            color: #5b5b5b;
+            font-size: 0.9rem;
         }
     </style>
 </head>
 <body>
+    <div class="box">
     <div class="container">
         <div class="play">
             <svg class="on" style="display:block" width="24" height="28" viewBox="0 0 24 28" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -175,7 +270,29 @@
         <div class="volume-bar">
             <div class="volumed"></div>
         </div>
-        <div class="name"></div>                 
+        <div class="name">
+            <p style="font-weight: bold; font-size: 1.5rem; color: rgb(66, 66, 66);">somewhere</p>
+        </div>
+        <button class="lyrics">词</button>
+        <div class="mirror">
+            <div class="lyrics_more">
+                <span class="title">somewhere</span>
+                <span class="singer">RebelX</span>
+                <hr>
+                <span class="lyrics_more_container">
+                    <p>行かなくちゃ 笛が僕を呼ぶ 真昼の月 思い出す</p>
+                    <p>【不走吗 笛声呼唤著我 忆起 正午的月亮】</p>
+                    <p>でも こうして また こうして</p>
+                    <p>【然而这样 依旧如此】</p>
+                    <p>ただ こうして まだ こうして いたいよ</p>
+                    <p>【仅仅是这样 还想要继续如此】</p>
+                    <p>おはよう こんにちは おやすみ</p>
+                    <p>【早安 你好 晚安】</p>
+                </span>
+            </div>
+        </div>
+        <div class="mask"></div>             
+    </div>
     </div>
 </body>
 </html>
