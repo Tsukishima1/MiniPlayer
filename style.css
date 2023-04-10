@@ -6,7 +6,7 @@
 body {
     background-color: rgb(242, 242, 242);
     background-image: url(/defaultcover.jpg);
-    background-size: 100%;
+    background-size: 100%; 
 }
 body::before {
     content: "";
@@ -21,7 +21,7 @@ body::before {
     width: 456px;
     height: 169px;
     left: 50%;
-    top: 70%;
+    top: 75%;
     transform: translate(-50%,-50%);
     background: #FCFCFC;
     box-shadow: 0px 0px 16px 0px rgba(255, 255, 255, 0.785);
@@ -96,7 +96,7 @@ body::before {
 .shadow {
     border-radius: 100%;
     width: 153px;
-    height: 5px;
+    height: 8px;
     background: rgb(217, 217, 217);
     position:absolute;
     bottom: 27px;
@@ -232,8 +232,7 @@ body::before {
 }
 .arrow {
     position: absolute;
-    left: 50%;
-    transform:translate(-50%);
+    left: 185px;
     top: -10px;
     cursor: pointer;
     transform: rotate(180deg);

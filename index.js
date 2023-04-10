@@ -45,7 +45,6 @@ window.addEventListener('load',function() {
         if (showLyrics) {
             lyrics_more.style.WebkitTransform='translateY(0px)';
             arrowShowOn();
-            console.log(lyrics_more.style.transform);
         }
         else {
             arrowShowOff();
