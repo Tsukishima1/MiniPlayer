@@ -15,27 +15,45 @@ window.addEventListener('load',function() {
     var lyrics = document.querySelector('.lyrics');
     var cover = document.querySelector('.cover');
     var mirror = document.querySelector('.mirror');
+    var arrow = document.querySelector('.arrow');
     lyrics.addEventListener('click', function(){
-        showLyrics=!showLyrics;
-        if (showLyrics) {
-            lyrics_more.style.WebkitTransform='translateY(0px)';
-            console.log(lyrics_more.style.transform);
-        }
-        else {
-            lyrics_more.style.WebkitTransform='translateY(100%)';
-        }
+        isShowLyrics();
     })
     cover.addEventListener('click', function() {
-        showLyrics=!showLyrics;
-        if (showLyrics) {
-            lyrics_more.style.WebkitTransform='translateY(0px)';
-            console.log(lyrics_more.style.transform);
-        }
-        else {
-            lyrics_more.style.WebkitTransform='translateY(100%)';
-        }
+        isShowLyrics();
     })
     var showLyrics = false;
     var lyrics_more = document.querySelector('.lyrics_more');
     
+    // 箭头消失
+    function arrowShowOff() {
+        var timer = setInterval(() => {
+            arrow.style.display='none';
+            clearInterval(timer);
+        }, 500);
+    }
+    // 箭头出现
+    function arrowShowOn() {
+        var timer = setInterval(() => {
+            arrow.style.display='block';
+            clearInterval(timer);
+        }, 700);       
+    }
+    // 是否展示歌词
+    function isShowLyrics() {
+        showLyrics=!showLyrics;
+        if (showLyrics) {
+            lyrics_more.style.WebkitTransform='translateY(0px)';
+            arrowShowOn();
+            console.log(lyrics_more.style.transform);
+        }
+        else {
+            arrowShowOff();
+            lyrics_more.style.WebkitTransform='translateY(100%)';
+        }
+    }
+
+    arrow.addEventListener('click', ()=>{
+        isShowLyrics();
+    })
 })

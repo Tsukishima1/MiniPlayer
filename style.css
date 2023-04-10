@@ -226,8 +226,28 @@ body::before {
     border-radius: 24px;
     overflow: clip;
     overflow-clip-margin: 500px;
-    background-color: transparent;
+    background-color: transform;
     overflow: hidden;
+}
+.arrow {
+    position: absolute;
+    left: 50%;
+    transform:translate(-50%);
+    top: -10px;
+    cursor: pointer;
+    transform: rotate(180deg);
+    display: none;
+}
+.arrow:hover {
+    animation: 0.5s linear alternate infinite arrowJump;
+}
+@keyframes arrowJump {
+    from {
+        top:-10px;
+    }
+    to {
+        top:-20px;
+    }
 }
 .mask {
     height: 100%;
