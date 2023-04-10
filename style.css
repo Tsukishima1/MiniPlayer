@@ -73,7 +73,7 @@ body::before {
     width: 153px;
     height: 153px;
     left: 35px;
-    bottom: 61px;
+    bottom: 50px;
     box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.38);
     border-radius: 29px;
     background-image: url(defaultcover.jpg);
@@ -94,13 +94,14 @@ body::before {
     }
 }
 .shadow {
+    border-radius: 100%;
     width: 153px;
     height: 5px;
     background: rgb(217, 217, 217);
     position:absolute;
-    bottom: 44px;
+    bottom: 27px;
     left: 35px;
-    filter: blur(3px);
+    filter: blur(2px);
     animation: 2s linear 1s infinite alternate hoverShadow;
 }
 @keyframes hoverShadow {
@@ -111,7 +112,7 @@ body::before {
     to {
         width: 135px;
         left: 44px;
-        filter: blur(5px);
+        filter: blur(4px);
     }
 }
 .volume-bar {
