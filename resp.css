@@ -1,0 +1,95 @@
+@media screen and (max-width: 460px) {
+    .container,.mirror {
+        width: 356px;
+        height: 139px;
+    }
+    .mirror {
+        height: 700px;
+    }
+    .cover {
+        width: 130px;
+        height: 130px;
+        left: 25px;
+    }
+    .shadow {
+        left: 25px;
+        width: 130px;
+    }
+    .profile {
+        right: 25px;
+        width: 150px;
+        height: 40px;
+        top: 20px;
+    }
+    .profile .pro_container .songname {
+        font-size: 1.2rem;
+    }
+    .pro_container .singername {
+        font-size: 1.1rem;
+    }
+    .lyrics {
+        width: 35px;
+        height: 35px;
+        bottom: 20px;
+        font-size: 1.2rem;
+    }
+    .container .play {
+        width: 47px;
+        height: 47px;
+        bottom: 16px;
+        right: 98px;
+    }
+    .play .on {
+        width: 20px;
+        bottom: 10px;
+        left: 15px;
+    }
+    .play .off {
+        width: 27px;
+        top: 8px;
+        left: 9.5px;
+    }
+    @keyframes hoverShadow {
+        to {
+            width: 60px;
+            left: 66px;
+            filter: blur(5px);
+        }
+        from {
+            width: 129px;
+            left: 26px;
+            filter: blur(2px);
+        }
+    }
+    .next {
+        width: 13px;
+        right: 70px;
+        top: 90px;
+    }
+    .last {
+        width: 13px;
+        right: 162px;
+        top: 90px;
+    }
+    .lyrics_more {
+        left: 17.5px;
+        width: 280px;
+        bottom: 80px;
+    }
+    .arrow {
+        left: 145px;
+    }
+    .lyrics_more_container p:nth-child(2n) {
+        font-size: 0.7rem;
+    }
+    .lyrics_more_container p:nth-child(2n+1) {
+        font-size: 0.9rem;
+    }
+    .header {
+        height: 85px;
+    }
+    .header .title {
+        font-size: 1.3rem;
+    }
+
+}

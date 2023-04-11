@@ -70,4 +70,8 @@ window.addEventListener('load',function() {
         cover.style.animationPlayState='paused';
         shadow.style.animationPlayState='paused';        
     })
+
+    lyrics.addEventListener('click', ()=>{
+        console.log(this.innerWidth);
+    })
 })
