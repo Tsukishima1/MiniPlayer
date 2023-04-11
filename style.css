@@ -142,7 +142,7 @@ body::before {
     background-color: #C5BDD0;
     box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.41);
 }
-.name {
+.profile {
     position: absolute;
     right: 38px;
     top: 23px;
@@ -153,6 +153,15 @@ body::before {
     display: flex;
     align-items: center;
     text-indent: 10px;
+}
+.profile .songname {
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: rgb(66, 66, 66);
+}
+.profile .singername {
+    font-size: 1.2rem;
+    color: #858585;
 }
 .lyrics {
     cursor: pointer;
@@ -198,7 +207,7 @@ body::before {
     align-items: center;
     justify-content: center;
     transition: ease-in-out 0.5s;
-    opacity: 0.9;
+    opacity: 0.8;
     transform: translateY(100%);
 }
 .lyrics_more_container {

@@ -6,10 +6,12 @@ window.addEventListener('load',function() {
         if (on.style.display==='block') {
             on.style.display='none';
             off.style.display='block';
+            audio.play();
         }
         else {
             on.style.display='block';
-            off.style.display='none';            
+            off.style.display='none';
+            audio.pause();           
         }
     })
     var lyrics = document.querySelector('.lyrics');
@@ -55,4 +57,7 @@ window.addEventListener('load',function() {
     arrow.addEventListener('click', ()=>{
         isShowLyrics();
     })
+
+    var audio = document.querySelector('audio');
+
 })

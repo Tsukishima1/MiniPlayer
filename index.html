@@ -7,296 +7,31 @@
     <title>MiniPlayer</title>
     <script src="index.js"></script>
     <script src="//unpkg.com/spacingjs" defer></script>
-    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="style.css">
     <link rel="icon" 
       type="image/png" 
       href="https://www.emojiall.com/en/header-svg/%F0%9F%8D%BB.svg">
-    <style>
-* {
-    padding: 0px;
-    margin: 0px;
-    font-family: 'Microsoft YaHei UI';
-}
-body {
-    background-color: rgb(242, 242, 242);
-    background-image: url(defaultcover.jpg);
-    background-size: 100%; 
-}
-body::before {
-    content: "";
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    backdrop-filter: blur(10px);
-}
-.container {
-    position: absolute;
-    z-index: 99;
-    width: 456px;
-    height: 169px;
-    left: 50%;
-    top: 75%;
-    transform: translate(-50%,-50%);
-    background: #FCFCFC;
-    box-shadow: 0px 0px 16px 0px rgba(255, 255, 255, 0.785);
-    border-radius: 24px;
-    overflow: hi;
-}
-.container .play {
-    position: absolute;
-    background: #F5F5F5;
-    width: 58px;
-    height: 58px;
-    bottom: 22px;
-    right: 122px;
-    border-radius: 100%;
-    cursor: pointer;
-}
-.play:hover {
-    transition: 0.2s linear;
-    background-color: #f2f2f2;
-    box-shadow: 0px 0px 5px 0px rgb(183, 183, 183);
-}
-.play .on {
-    display: block;
-    position: absolute;
-    right: 15px;
-    bottom: 15px;
-}
-.play .off {
-    display: none;
-    position: absolute;
-    right: 13px;
-    top: 14px;
-}
-.next {
-    cursor: pointer;
-    position: absolute;
-    right: 83px;
-    top: 110px;
-}
-.last {
-    cursor: pointer;
-    position: absolute;
-    top: 110px;
-    right: 206px;
-}
-.cover {
-    cursor: pointer;
-    position: absolute;
-    width: 153px;
-    height: 153px;
-    left: 35px;
-    bottom: 50px;
-    box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.38);
-    border-radius: 29px;
-    background-image: url(defaultcover.jpg);
-    background-position: center;
-    background-size: 100%;
-    animation: 2s linear 1s infinite alternate hoverCover;
-}
-.cover:hover {
-    transition: 0.2s linear;
-    transform: translateY(-3px);
-}
-@keyframes hoverCover {
-    from {
-        transform: translateY(-10px);
-    }
-    to {
-        transform: translateY(0px);
-    }
-}
-.shadow {
-    border-radius: 100%;
-    width: 153px;
-    height: 8px;
-    background: rgb(217, 217, 217);
-    position:absolute;
-    bottom: 27px;
-    left: 35px;
-    filter: blur(2px);
-    animation: 2s linear 1s infinite alternate hoverShadow;
-}
-@keyframes hoverShadow {
-    from {
-        width: 70px;
-        left: 84px;
-    }
-    to {
-        width: 135px;
-        left: 44px;
-        filter: blur(4px);
-    }
-}
-.volume-bar {
-    position: absolute;
-    bottom: 25px;
-    left: 26px;
-    width: 173px;
-    height: 7px;
-    background-color: #D9D9D9;
-    border-radius: 26px;
-}
-.volume-bar .volumed {
-    width: 135px;
-    height: 100%;
-    background-color: #C5C7D2;
-    border-radius: 26px;
-}
-.volume-bar::after {
-    cursor: pointer;
-    content: "";
-    position: absolute;
-    bottom: -3px;
-    left: 128px;
-    width: 14px;
-    height: 14px;
-    border-radius: 100%;
-    background-color: #C5BDD0;
-    box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.41);
-}
-.name {
-    position: absolute;
-    right: 38px;
-    top: 23px;
-    width: 188px;
-    height: 48px;
-    background: #F5F5F5;
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    text-indent: 10px;
-}
-.lyrics {
-    cursor: pointer;
-    position: absolute;
-    right: 20px;
-    bottom: 30px;
-    width: 40px;
-    height: 40px;
-    border-radius: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #858585;
-    font-weight: bold;
-    font-size: 1.35rem;
-    background-color: #ececec;
-    outline: none;
-    border: 0px;
-}
-.lyrics:hover {
-    transition: 0.2s ease-in-out;
-    transform: translateY(-1px);
-    background-color: rgb(211, 211, 211);
-}
-.lyrics_more .title {
-    position: absolute;
-    top: 26px;
-    font-size: 1.5rem;
-    font-weight: bold;
-}
-.lyrics_more {
-    position: absolute;
-    z-index: -99;
-    width: 400px;
-    background:linear-gradient(to top, white, #F5F5F5);
-    height: 430px;
-    bottom: 168px;
-    border-radius: 30px;
-    border-bottom-left-radius: 0px;
-    border-bottom-right-radius: 0px;
-    left: 27px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: ease-in-out 0.5s;
-    opacity: 0.9;
-    transform: translateY(100%);
-}
-.lyrics_more_container {
-    display: flex;
-    white-space: pre-wrap;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
-    color: #3c3c3c;
-}
-.lyrics_more_container p:nth-child(2n+1) {
-    margin-top: 25px;
-    font-size: 1.05rem;
-}
-.lyrics_more_container p:nth-child(2n) {
-    margin-top: 3px;
-    color: #858585;
-}
-.mirror {
-    position: absolute;
-    z-index: -999;
-    width: 456px;
-    height: 639px;
-    bottom: 0px;
-    border-radius: 24px;
-    overflow: clip;
-    overflow-clip-margin: 500px;
-    background-color: transform;
-    overflow: hidden;
-}
-.arrow {
-    position: absolute;
-    left: 185px;
-    top: -10px;
-    cursor: pointer;
-    transform: rotate(180deg);
-    display: none;
-}
-.arrow:hover {
-    animation: 0.5s linear alternate infinite arrowJump;
-}
-@keyframes arrowJump {
-    from {
-        top:-10px;
-    }
-    to {
-        top:-20px;
-    }
-}
-.mask {
-    height: 100%;
-    width: 100%;
-    border-radius: 24px;
-    background-color: rgb(255, 255, 255);
-}
-.lyrics_more .singer {
-    position: absolute;
-    top: 60px;
-    color: #5b5b5b;
-    font-size: 0.9rem;
-}
-    </style>
 </head>
 <body>
     <div class="box">
     <div class="container">
         <div class="play">
             <svg class="on" style="display:block" width="24" height="28" viewBox="0 0 24 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M22.5 11.4019C24.5 12.5566 24.5 15.4434 22.5 16.5981L4.5 26.9904C2.5 28.1451 0 26.7017 0 24.3923L0 3.60769C0 1.29829 2.5 -0.145082 4.5 1.00962L22.5 11.4019Z" fill="#C5BDD0"/>
+                <path d="M22.5 11.4019C24.5 12.5566 24.5 15.4434 22.5 16.5981L4.5 26.9904C2.5 28.1451 0 26.7017 0 24.3923L0 3.60769C0 1.29829 2.5 -0.145082 4.5 1.00962L22.5 11.4019Z" fill="#858585"/>
             </svg>                
             <svg class="off" style="display: none" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <g filter="url(#filter0_d_11_21)">
-                <rect x="4" y="4" width="7.68" height="23.04" rx="3" fill="#C5BDD0"/>
+                <rect x="4" y="4" width="7.68" height="23.04" rx="3" fill="#858585"/>
                 </g>
                 <g filter="url(#filter1_d_11_21)">
-                <rect x="20.3199" y="4" width="7.68" height="23.04" rx="3" fill="#C5BDD0"/>
+                <rect x="20.3199" y="4" width="7.68" height="23.04" rx="3" fill="#858585"/>
                 </g>
                 <defs>
                 <filter id="filter0_d_11_21" x="0" y="0" width="15.6801" height="31.04" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
                 <feFlood flood-opacity="0" result="BackgroundImageFix"/>
                 <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
                 <feOffset/>
-                <feGaussianBlur stdDeviation="2"/>
+                <feGaussianBlur stdDeviation="2"/>                                                                                                              
                 <feComposite in2="hardAlpha" operator="out"/>
                 <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.09 0"/>
                 <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_11_21"/>
@@ -326,8 +61,9 @@ body::before {
         <!-- <div class="volume-bar">
             <div class="volumed"></div>
         </div> -->
-        <div class="name">
-            <p style="font-weight: bold; font-size: 1.5rem; color: rgb(66, 66, 66);">somewhere</p>
+        <div class="profile">
+            <p class="songname">蛍</p> -
+            <p class="singername">栗プリン</p>
         </div>
         <button class="lyrics">词</button>
         <div class="mirror">
@@ -350,8 +86,8 @@ body::before {
                     </filter>
                     </defs>
                 </svg>
-                <span class="title">somewhere</span>
-                <span class="singer">RebelX</span>
+                <span class="title">蛍</span>
+                <span class="singer">栗プリン</span>
                 <hr>
                 <span class="lyrics_more_container">
                     <p>行かなくちゃ 笛が僕を呼ぶ 真昼の月 思い出す</p>
@@ -360,12 +96,18 @@ body::before {
                     <p>【然而这样 依旧如此】</p>
                     <p>ただ こうして まだ こうして いたいよ</p>
                     <p>【仅仅是这样 还想要继续如此】</p>
-                    <p>おはよう こんにちは おやすみ</p>
-                    <p>【早安 你好 晚安】</p>
+                    <p>声が出ない 目も見えない</p>
+                    <p>【无法发出声音 也无法看清】</p>
                 </span>
             </div>
         </div>
-        <div class="mask"></div>             
+        <div class="mask"></div>
+        <audio
+            src="/栗プリン - 蛍.mp3">
+            <a href="/栗プリン - 蛍.mp3">
+                Download audio
+            </a>
+        </audio>             
     </div>
     </div>
 </body>
