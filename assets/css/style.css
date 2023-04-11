@@ -5,7 +5,7 @@
 }
 body {
     background-color: rgb(242, 242, 242);
-    background-image: url(/defaultcover.jpg);
+    background-image: url(/assets/images/defaultcover.jpg);
     background-size: 100%; 
 }
 body::before {
@@ -76,7 +76,7 @@ body::before {
     bottom: 50px;
     box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.38);
     border-radius: 29px;
-    background-image: url(defaultcover.jpg);
+    background-image: url(/assets/images/defaultcover.jpg);
     background-position: center;
     background-size: 100%;
     animation: 2s linear 1s infinite alternate hoverCover;
