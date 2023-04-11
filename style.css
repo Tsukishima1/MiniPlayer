@@ -80,16 +80,17 @@ body::before {
     background-position: center;
     background-size: 100%;
     animation: 2s linear 1s infinite alternate hoverCover;
+    animation-play-state: paused;
 }
 .cover:hover {
     transition: 0.2s linear;
     transform: translateY(-3px);
 }
 @keyframes hoverCover {
-    from {
+    to {
         transform: translateY(-10px);
     }
-    to {
+    from {
         transform: translateY(0px);
     }
 }
@@ -101,18 +102,19 @@ body::before {
     position:absolute;
     bottom: 27px;
     left: 35px;
-    filter: blur(2px);
+    filter: blur(4px);
     animation: 2s linear 1s infinite alternate hoverShadow;
+    animation-play-state: paused;
 }
 @keyframes hoverShadow {
-    from {
+    to {
         width: 70px;
         left: 84px;
     }
-    to {
+    from {
         width: 135px;
         left: 44px;
-        filter: blur(4px);
+        filter: blur(2px);
     }
 }
 .volume-bar {

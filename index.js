@@ -2,16 +2,21 @@ window.addEventListener('load',function() {
     var play = document.querySelector('.play');
     var on = document.querySelector('.on');
     var off = document.querySelector('.off');
+    var shadow = document.querySelector('.shadow');
     play.addEventListener('click', function() {
         if (on.style.display==='block') {
             on.style.display='none';
             off.style.display='block';
+            cover.style.animationPlayState='running';
+            shadow.style.animationPlayState='running';
             audio.play();
         }
         else {
             on.style.display='block';
             off.style.display='none';
-            audio.pause();           
+            cover.style.animationPlayState='paused';
+            shadow.style.animationPlayState='paused';
+            audio.pause();        
         }
     })
     var lyrics = document.querySelector('.lyrics');
