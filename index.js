@@ -64,5 +64,10 @@ window.addEventListener('load',function() {
     })
 
     var audio = document.querySelector('audio');
-
+    audio.addEventListener('ended', ()=>{
+        on.style.display='block';
+        off.style.display='none';
+        cover.style.animationPlayState='paused';
+        shadow.style.animationPlayState='paused';        
+    })
 })
