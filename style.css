@@ -210,7 +210,7 @@ body::before {
     z-index: -99;
     width: 361px;
     background:linear-gradient(to top, rgb(245, 245, 245), #ffffff);
-    background-image: url(/subtract.svg);
+    background-image: url(./subtract.svg);
     height: 430px;
     bottom: 168px;
     border-radius: 30px;
