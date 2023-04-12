@@ -75,12 +75,13 @@
         left: 17.5px;
         width: 280px;
         bottom: 80px;
+        background-image: url(/subtract-rep.svg);
     }
     .arrow {
         left: 145px;
     }
     .lyrics_more_container p:nth-child(2n) {
-        font-size: 0.7rem;
+        font-size: 0.78rem;
     }
     .lyrics_more_container p:nth-child(2n+1) {
         font-size: 0.9rem;
@@ -91,5 +92,7 @@
     .header .title {
         font-size: 1.3rem;
     }
-
+    .lyrics_more_container {
+        padding: 17px 14px;
+    }
 }

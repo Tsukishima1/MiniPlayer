@@ -210,6 +210,7 @@ body::before {
     z-index: -99;
     width: 361px;
     background:linear-gradient(to top, rgb(245, 245, 245), #ffffff);
+    background-image: url(/subtract.svg);
     height: 430px;
     bottom: 168px;
     border-radius: 30px;
@@ -229,7 +230,7 @@ body::before {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 110px;
+    height: 115px;
     gap: 5px;
 }
 .lyrics_more_container {
@@ -239,6 +240,7 @@ body::before {
     align-items: flex-start;
     justify-content: center;
     font-weight: bold;
+    padding-top: 10px;
     color: #3c3c3c;
 }
 .lyrics_more_container p:nth-child(2n+1) {
