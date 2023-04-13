@@ -5,7 +5,7 @@
 }
 body {
     background-color: rgb(242, 242, 242);
-    background-image: url(defaultcover.jpg);
+    background-image: url(../image/defaultcover.jpg);
     background-size: 100%; 
 }
 body::before {
@@ -76,7 +76,7 @@ body::before {
     bottom: 50px;
     box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.38);
     border-radius: 29px;
-    background-image: url(defaultcover.jpg);
+    background-image: url(../image/defaultcover.jpg);
     background-position: center;
     background-size: 100%;
     animation: 2s linear 1s infinite alternate hoverCover;
@@ -210,7 +210,7 @@ body::before {
     z-index: -99;
     width: 361px;
     background:linear-gradient(to top, rgb(245, 245, 245), #ffffff);
-    background-image: url(./subtract.svg);
+    background-image: url(../image/subtract.svg);
     height: 430px;
     bottom: 168px;
     border-radius: 30px;
